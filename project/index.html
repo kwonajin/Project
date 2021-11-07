@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꿈꾸는 서점</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+        function login(){
+            let id = document.getElementById("id").value;
+            let pw = document.getElementById("pw").value;
+            if(id==="admin"){
+                if(pw=="1234"){
+                    alert(document.getElementById("login").innerHTML= id + 
+                     "님이 로그인 했습니다.");
+                } else{
+                    alert("비밀번호를 확인하세요");
+                }
+            } else{
+                alert("회원가입을 하세요");
+            }
+        }
+
+        function w3_open(){
+               document.getElementById("mySidebar").style.display = "block";
+           }
+           function w3_close(){
+               document.getElementById("mySidebar").style.display = "none";
+           }
+
+        $(document).ready(function(){
+            var currentPosition = parseInt($(".quickmenu").css("top"));
+            $(window).scroll(function() {
+                var position = $(window).scrollTop(); 
+                $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+            });
+        });
+    </script>
+
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+        body{max-width: 950px; margin : 0 auto;}
+        *{font-family: "Jeju Myeongjo" ,Arial, Helvetica, sans-serif}
+        header h1{display: inline; letter-spacing: 3px; color: #695e4ef6; position: absolute; padding: 15px; margin: 0px 0px 15px ; }
+        header img{padding: 5px; margin: 0px 0px 15px ;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+
+
+        nav ul {
+            display: flex;
+            text-align: center; border-top: 3px solid #b49770e7;
+            border-bottom: 3px solid#b49770e7; padding: 15px 10px;   
+        }
+        nav ul li{
+            list-style: none;
+            color: rgb(109, 109, 109);
+            display: inline;
+            padding: 20px 70px;
+            letter-spacing: 5px;
+        }
+        nav ul li:hover{
+            color: white;
+            background-color: #866943e7;
+        }
+        nav li a:hover{
+            color:white;
+        }
+
+        * {margin:0;padding:1px;}
+	    .section input[id*="slide"] {display:none;}
+
+	    .section .slidewrap {
+            max-width:1200px;
+            margin:0 auto;
+        }
+	    .section .slidelist {
+            white-space:nowrap;
+            font-size:0;
+            overflow:hidden;
+            position:relative;
+        }
+	    .section .slidelist > li {
+            display:inline-block;
+            vertical-align:middle;
+            width:100%;transition:all .5s;
+        }
+	    .section .slidelist > li > a {
+            display:block;
+            position:relative;
+        }
+	    .section .slidelist > li > a img {
+            width:100%;
+        }
+	    .section .slidelist label {
+            position:absolute;
+            z-index:10;top:50%;
+            transform:translateY(-50%);
+            padding:50px;
+            cursor:pointer;
+        }
+
+	    .section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	    .section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	    .section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+
+	
+	    .slide-control > div {
+            display:none;
+        }
+	    .section .left {
+            left:3px;
+            background:url('./image/left.png') center center / 80% no-repeat;
+        }
+	    .section .right {
+            right:3px;
+            background:url('./image/right.png') center center / 80% no-repeat;
+        }
+
+	    .section input[id="slide01"]:checked ~ .slidewrap .slide-control > div:nth-child(1) {display:block;}
+	    .section input[id="slide02"]:checked ~ .slidewrap .slide-control > div:nth-child(2) {display:block;}
+	    .section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {display:block;}
+
+	    .slide-pagelist {
+            text-align:center;
+            padding:20px;
+        }
+	    .slide-pagelist > li {
+            display:inline-block;
+            vertical-align:middle;
+        }
+	    .slide-pagelist > li > label {
+            display:block;
+            padding:8px 20px;
+            border-radius:20px;
+            background:#ccc;
+            margin:10px 10px;
+            cursor:pointer;
+        }
+
+	    .section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:#999;}
+	    .section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#999;}
+	    .section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#999;}
+
+        main{
+            display: flex;
+        }
+
+
+        section{
+            flex: 8;
+            box-sizing: border-box;
+        }
+
+        article, aside {
+            margin: 10px;
+        }
+
+        aside{
+            flex: 2;
+        }
+
+        div#login{
+            background-color: rgb(206, 197, 189);
+        }
+
+        div#login, div#aside-list{
+            padding: 11px;
+            border:4px solid rgb(202, 183, 171);
+        }
+
+        .a, .c{
+            margin: 1.5px;
+        }
+
+        .a div, .c div{
+            float:left;
+            border: 1px solid rgb(102, 97, 88);
+            margin: 3.2px;
+            padding: 2.5px;
+        }
+
+        .b div{
+            float:left;
+            margin: 2.5px;
+            padding: 3px;
+        }
+
+        article{
+            margin-bottom: 30px;
+        }
+
+        div#header{
+            margin: 0px 300px;
+
+        }
+
+        input[type=id] {font-family:'Malgun gothic', dotum, sans-serif;}
+        input[type=password] {font-family:'Malgun gothic', dotum, sans-serif;}
+
+
+        .floating {
+            position: fixed; 
+            right: 50%; 
+            top: 200px; 
+            margin-right: -720px; 
+            text-align:center; 
+            width: 70px; 
+            border-radius: 0.5em; 
+            border: 3px solid rgb(173, 166, 153);
+            background-color: rgb(189, 181, 166);
+        }
+
+        div#f01, div#f02, div#f03{
+            margin: 8px;
+            padding: 5px;
+            border-radius: 0.5em; 
+            border: 2px solid rgb(138, 134, 126);
+            background-color: rgb(218, 210, 198);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="w3-sidebar w3-bar-block	w3-border-right" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+            <a href="#" class="w3-bar-item w3-button">마이페이지</a>
+            <a href="#" class="w3-bar-item w3-button">장바구니</a>
+            <a href="#" class="w3-bar-item w3-button">내가 찜한 목록</a>
+            <a href="#" class="w3-bar-item w3-button">알림</a>
+        </div>
+        
+        <div>
+        <button class="w3-button  w3-xlarge" onclick="w3_open()">☰</button>
+        </div>
+        <div id="header">
+        <a href="./index.html"><img src="./image/logo.png" width="120" height="100" alt="logo">
+        <h1><b>꿈꾸는 서점</b></h1></a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <b><li><a href="./index_bestseller.html">베스트셀러</a></li>
+            <li><a href="./index_new.html">신간 리뷰</a></li>
+            <li><a href="./index_goods.html">굿즈</a></li>
+            <li><a href="./index_audiobook.html">듣는 책</a></li></b>
+        </ul>
+    </nav>
+
+<main>
+    <section>
+    <article>
+        <div style="border: 4px solid rgb(199, 184, 175)">
+            <div class="section">
+                <input type="radio" name="slide" id="slide01" checked>
+                <input type="radio" name="slide" id="slide02">
+                <input type="radio" name="slide" id="slide03">
+                <div class="slidewrap">
+                    
+                    <ul class="slidelist">
+                        <li class="slideitem">
+                            <a>
+                                <img src="./image/불편한 편의점 광고.jpg" width="640" height="400">
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a>
+                                <iframe width="640" height="400" src="https://www.youtube.com/embed/CkM21p0dPG8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a>
+                                <img src="./image/달러구트 광고.jpg" width="640" height="400">
+                            </a>
+                        </li class="slideitem">
+            
+                        <div class="slide-control">
+                            <div>
+                                <label for="slide03" class="left"></label>
+                                <label for="slide02" class="right"></label>
+                            </div>
+                            <div>
+                                <label for="slide01" class="left"></label>
+                                <label for="slide03" class="right"></label>
+                            </div>
+                            <div>
+                                <label for="slide02" class="left"></label>
+                                <label for="slide01" class="right"></label>
+                            </div>
+                        </div>
+                    </ul>
+
+                    <ul class="slide-pagelist">
+                        <li><label for="slide01"></label></li>
+                        <li><label for="slide02"></label></li>
+                        <li><label for="slide03"></label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="Best 10" class="w3-row w3-large w3-margin-top" >
+        <div class="a">
+        <h2 class="w3-text-brown"><b>Best 10</b></h2>
+        <div style="border: 4px solid rgb(199, 184, 175)">
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>1</b></center>
+        <img src="./image/book2.png" width="120" height="180" alt="book1">
+        <center><p><b>달러구트 꿈백화점</b></p></center>
+        </div>
+        <div id="img-text2" class="w3-text-gray">
+        <center><b>2</b></center>
+        <img src="./image/book4.png" width="120" height="180" alt="book2">
+        <center><p><b>아몬드</b></p></center>
+        </div>
+        <div id="img-text3" class="w3-text-gray">
+        <center><b>3</b></center>
+        <img src="./image/book1.png" width="120" height="180" alt="book2">
+        <center><p><b>가방 하나, 유럽</b></p></center>
+        </div>
+        <div id="img-text4" class="w3-text-gray">
+        <center><b>4</b></center>
+        <img src="./image/book3.png" width="120" height="180" alt="book2">
+        <center><p><b>사랑하지 않는다</b></p></center>
+        </div>
+        <div id="img-text5" class="w3-text-gray">
+        <center><b>5</b></center>
+        <img src="./image/book5.png" width="120" height="180" alt="book2">
+        <center><p><b>프리즘</b></p></center>
+        </div>
+
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>6</b></center>
+        <img src="./image/달러구트 꿈백화점2.png" width="120" height="180" alt="book2">
+        <center><p><b>달러구트 꿈백화점</b></p></center>
+        </div>
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>7</b></center>
+        <img src="./image/미드나잇 라이브러리.png" width="120" height="180" alt="book2">
+        <center><p><b>미드나잇</b></p></center>
+        </div>
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>8</b></center>
+        <img src="./image/1차원이 되고 싶어.png" width="120" height="180" alt="book2">
+        <center><p><b>1차원이 되고 싶어</b></p></center>
+        </div>
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>9</b></center>
+        <img src="./image/불편한 편의점.png" width="120" height="180" alt="book2">
+        <center><p><b>불편한 편의점</b></p></center>
+        </div>
+        <div id="img-text1" class="w3-text-gray">
+        <center><b>10</b></center>
+        <img src="./image/지금처럼 그렇게.png" width="120" height="180" alt="book2">
+        <center><p><b>지금처럼 그렇게</b></p></center>
+        </div>     
+        </div>      
+        </div>     
+    </article>    
+
+    <article class="video" class="w3-row w3-large w3-margin-top" >
+        <h2 class="w3-text-brown"><b>Hot</b></h2>
+        <div class="b">
+        <div style="border: 4px solid rgb(199, 184, 175)">
+        <div id="video1">
+        <iframe width="660" height="420" src="https://www.youtube.com/embed/5ftBaoc1k_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <center><b><p class="w3-text-brown"><달러구트 꿈백화점 2 _ 단골손님을 찾습니다></p></b></center>
+        </div>
+        </div>
+    </article>  
+
+    <article class="New" class="w3-row w3-large w3-margin-top" >
+        <div class="c">
+        <h2 class="w3-text-brown"><b>New</b></h2>
+        <div style="border: 4px solid rgb(199, 184, 175)">
+        <div id="img-text1" class="w3-text-gray">
+        <img src="./image/오늘 밤, 세계에서 이 사랑이 사라진다 해도.png" width="120" height="180" alt="book1">
+        <center><p><b>오늘 밤</b></p></center>
+        </div>
+        <div id="img-text2" class="w3-text-gray">
+        <img src="./image/백조와 박쥐.png" width="120" height="180" alt="book2">
+        <center><p><b>백조와 박쥐</b></p></center>
+        </div>
+        <div id="img-text3" class="w3-text-gray">
+        <img src="./image/어쩌면 동화는.png" width="120" height="180" alt="book2">
+        <center><p><b>어쩌면 동화는</b></p></center>
+        </div>
+        <div id="img-text4" class="w3-text-gray">
+        <img src="./image/너의 말이.png" width="120" height="180" alt="book2">
+        <center><p><b>너의 말이 좋아서</b></p></center>
+        </div>
+        <div id="img-text5" class="w3-text-gray">
+        <img src="./image/모든 관계는.png" width="120" height="180" alt="book2">
+        <center><p><b>모든 관계는</b></p></center>
+        </div>
+        </div>
+        </div>
+    </article>    
+    
+    </section>
+
+
+    <section>
+    <aside class="login" class="w3-container w3-cell">
+        <div id="login">
+            <center><h2 class="w3-text-brown"><b>Log In</b></h2>
+            ID <br><input class="w3-input1" type="id" name="id" id="id" placeholder=" ID"><br><br>
+            PASSWORD <br><input class="w3-input1" type="password" name="pass" id="pw" placeholder=" PASSWORD"><br><br>
+            <button class="w3-btn w3-pale-red" onclick="login();">login</button>
+            <button class="w3-btn w3-sand" onclick="cancel();">reset</button><br>
+            <a href="register.jsp" target="_blank" id="register">회원가입 </a>
+            <a href="#" id="forgot"> 비밀번호찾기 </a>
+            </center>
+        </div>
+    </aside>
+
+    <aside>
+    <div class="info">
+        <div id="aside-list">
+            <center><h5 class="w3-text-brown"><b>- 즐겨찾기 -</b></h5></center>
+                <ul>
+                    <li><a href="http://www.kyobobook.co.kr" target="_blank">Kyobobook</a></li><br>
+                    <li><a href="http://www.yes24.com" target="_self">Yes24</a></li><br>
+                    <li><a href="https://www.aladin.co.kr">Aladdin</a></li><br>
+                    <li><a href="https://library.busan.go.kr">Busan Library</a></li><br>
+                </ul>
+        </div>
+    </div>
+    </aside>
+    </section>
+</main>
+
+
+    <br><br><br><br><br>
+
+    <footer class="w3-gray w3-text-white">
+        <div class="w3-row">
+            <div class="w3-col s4  w3-container" >
+                <h5> Contact </h5>
+                <ul>
+                    <li>Phone - 010 4854 9173</li>
+                    <li>Email - <a href="mailto:kaj0529@naver.com" title="Email Us">kaj0529@naver.com</a></li>
+                    <li><a href="https://github.com/kwonajin/Project-by-Ajin">Github - https://github.com/<br>kwonajin/Project-by-Ajin</a></li>
+                </ul>
+                    
+            </div>
+            <div class="w3-col s4  w3-container" >
+                <h5> SNS </h5>
+                <a href="http://qr.kakao.com/talk/xbzb9HOZB2cPzfLkzEfQkOZNx74-"><i class="fa fa-comment-o" style="font-size:28px;color:white"></i></a>
+                <a href="https://twitter.com/Alway_in_Winter"><i class="fa fa-twitter" style="font-size:28px;color:white"></i></a>
+                <a href="https://www.instagram.com/kwonajin_/"><i class="fa fa-instagram" style="font-size:28px;color:white"></i></a>
+                <br/><br/>
+                Copyright &copy; 2021 kwonajin <br/>
+            </div>
+            <div class="w3-col s4 w3-container" >
+                <h5>About</h5>
+                This site supports your reading life <br>
+                    <a href="./index.html" class="btn btn-block btn-base btn-icon fa fa-home"><span> home</span></a>
+                    
+            </div>
+        </div>
+    </footer>
+
+    <a style="display:scroll;position:fixed;bottom:30px;right:50px;" href="#" title=”맨위로"><img src="./image/top.png" width="50px" height="50px"></a>
+
+    <div class="floating">
+        <div id="f01"><a href="./index.html"><i class="fa fa-home" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+        <div id="f02"><a href="https://www.google.co.kr/"><i class="fa fa-safari" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+        <div id="f03"><a href="http://qr.kakao.com/talk/xbzb9HOZB2cPzfLkzEfQkOZNx74-"><i class="fa fa-comments" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+    </div>
+
+</body>
+</html>

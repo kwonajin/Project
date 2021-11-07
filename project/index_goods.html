@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꿈꾸는 서점</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=".w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+            function w3_open(){
+               document.getElementById("mySidebar").style.display = "block";
+            }
+            function w3_close(){
+               document.getElementById("mySidebar").style.display = "none";
+            }
+
+            let data = [["./image/goods01.jpg", "연의 편지 한정판 엽서", "13,500"],
+                    ["./image/goods02.png", "책 라디오", "14,000"],
+                    ["./image/goods03.png", "그림자 무드등", " 8,000"],
+                    ["./image/goods04.jpg", "책 베개", "13,000"],
+                    ["./image/goods05.png", "동화책 오르골", "11,300"],
+                    ["./image/goods06.png", "윤동주 별헤는 밤 시그니쳐 향수", "14,800"],
+                    ["./image/goods07.jpg", "어린왕자 구슬램프", "11,000"]]
+
+           function tablePrint(){
+            
+            let text ="";
+            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-brown"><th>Product Image</th><th>Title</th><th>Price</th></tr>`;
+            for(let i = 0; i<data.length; i++){
+                text+=`<tr><td><img src=${data[i][0]}></td><td>${data[i][1]}</td><td>${data[i][2]}</td></tr>`;
+            }
+            text += `</table>`;
+                document.getElementById("productList").innerHTML=text;
+           }
+           function fileUpload(){
+               let a = new Array();
+               let file = "./image/" + document.getElementById("file").files[0].name;
+               let title = document.getElementById("title").value;
+               let price = parseInt(document.getElementById("price").value);
+               
+               a[0] = file;
+               a[1] = title;
+               a[2] = price;
+               data.push(a);
+               console.log(data);
+           }
+    </script>
+
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+        body{max-width: 950px; margin : 0 auto;}
+        *{font-family: "Jeju Myeongjo" ,Arial, Helvetica, sans-serif}
+        header h1{display: inline; letter-spacing: 3px; color: #695e4ef6; position: absolute; padding: 15px; margin: 0px 0px 15px ; }
+        header img{padding: 5px; margin: 0px 0px 15px ;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+
+        nav ul {
+            display: flex;
+            text-align: center; border-top: 3px solid #b49770e7;
+            border-bottom: 3px solid#b49770e7; padding: 15px 10px;   
+        }
+        nav ul li{
+            list-style: none;
+            color: rgb(109, 109, 109);
+            display: inline;
+            padding: 20px 70px;
+            letter-spacing: 5px;
+        }
+        nav ul li:hover{
+            color: white;
+            background-color: #866943e7;
+        }
+        nav li a:hover{
+            color:white;
+        }
+
+        article{
+            margin : 20px 0px;
+        }
+        div#productadd{
+            padding : 15px;
+        }
+
+        div#header{
+            margin: 0px 300px;
+
+        }
+
+        .floating {
+            position: fixed; 
+            right: 50%; 
+            top: 200px; 
+            margin-right: -720px; 
+            text-align:center; 
+            width: 70px; 
+            border-radius: 0.5em; 
+            border: 3px solid rgb(173, 166, 153);
+            background-color: rgb(189, 181, 166);
+        }
+
+        div#f01, div#f02, div#f03{
+            margin: 8px;
+            padding: 5px;
+            border-radius: 0.5em; 
+            border: 2px solid rgb(138, 134, 126);
+            background-color: rgb(218, 210, 198);
+        }
+    </style>
+</head>
+<body onload="tablePrint();">
+    <header>
+        <div class="w3-sidebar w3-bar-block	w3-border-right" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+            <a href="#" class="w3-bar-item w3-button">마이페이지</a>
+            <a href="#" class="w3-bar-item w3-button">장바구니</a>
+            <a href="#" class="w3-bar-item w3-button">내가 찜한 목록</a>
+            <a href="#" class="w3-bar-item w3-button">알림</a>
+        </div>
+        
+        <div>
+        <button class="w3-button  w3-xlarge" onclick="w3_open()">☰</button>
+        </div>
+        <div id="header">
+        <a href="./index.html"><img src="./image/logo.png" width="120" height="100" alt="logo">
+        <h1><b>꿈꾸는 서점</b></h1></a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <b><li><a href="./index_bestseller.html">베스트셀러</a></li>
+            <li><a href="./index_new.html">신간 리뷰</a></li>
+            <li><a href="./index_goods.html">굿즈</a></li>
+            <li><a href="./index_audiobook.html">듣는 책</a></li></b>
+        </ul>
+    </nav>
+
+    <section>
+    <article 
+    <div id="demo" class="w3-container">
+        <h2 class="w3-text-brown"><b>Goods List</b></h2>
+        <div style="border: 4px solid rgb(199, 184, 175)">
+        <div id="productList">
+
+        </div>
+        </table>
+        </div>
+    </div>
+    </article>
+    <br><br>
+    
+    <article class="add" class="w3-row w3-large w3-margin-top">
+    <div class="w3-container">
+        <h2 class="w3-text-brown"><b>Product registration (상품등록)</b></h2>
+        <div style="border: 4px solid rgb(199, 184, 175)">
+        <div id="productadd">
+        Product Image : <input class="w3-input" type="file" name="" id="file"> <br>
+        Title : <input class="w3-input" type="text" name="" id="title"> <br>
+        Price : <input class="w3-input" type="text" name="" id="price"> <br>
+        <button class= "w3-button w3-round w3-brown" onclick="fileUpload();"> 상품등록</button>
+        <button class= "w3-button w3-round w3-brown" onclick="tablePrint();"> 상품리스트</button>
+        </div>
+        </div>
+    </div>
+</article>
+    </section>
+
+    <footer class="w3-gray w3-text-white">
+        <div class="w3-row">
+            <div class="w3-col s4  w3-container" >
+                <h5> Contact </h5>
+                <ul>
+                    <li>Phone - 010 4854 9173</li>
+                    <li>Email - <a href="mailto:kaj0529@naver.com" title="Email Us">kaj0529@naver.com</a></li>
+                    <li><a href="https://github.com/kwonajin/Project-by-Ajin">Github - https://github.com/<br>kwonajin/Project-by-Ajin</a></li>
+                </ul>
+                    
+            </div>
+            <div class="w3-col s4  w3-container" >
+                <h5> SNS </h5>
+                <a href="http://qr.kakao.com/talk/xbzb9HOZB2cPzfLkzEfQkOZNx74-"><i class="fa fa-comment-o" style="font-size:28px;color:white"></i></a>
+                <a href="https://twitter.com/Alway_in_Winter"><i class="fa fa-twitter" style="font-size:28px;color:white"></i></a>
+                <a href="https://www.instagram.com/kwonajin_/"><i class="fa fa-instagram" style="font-size:28px;color:white"></i></a>
+                <br/><br/>
+                Copyright &copy; 2021 kwonajin <br/>
+            </div>
+            <div class="w3-col s4 w3-container" >
+                <h5>About</h5>
+                This site supports your reading life <br>
+                    <a href="./index.html" class="btn btn-block btn-base btn-icon fa fa-home"><span> home</span></a>
+                    
+            </div>
+        </div>
+    </footer>
+
+
+    <a style="display:scroll;position:fixed;bottom:30px;right:50px;" href="#" title=”맨위로"><img src="./image/top.png" width="50px" height="50px"></a>
+
+    <div class="floating">
+        <div id="f01"><a href="./index.html"><i class="fa fa-home" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+        <div id="f02"><a href="https://www.google.co.kr/"><i class="fa fa-safari" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+        <div id="f03"><a href="http://qr.kakao.com/talk/xbzb9HOZB2cPzfLkzEfQkOZNx74-"><i class="fa fa-comments" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
+    </div>
+</body>
+</html>
