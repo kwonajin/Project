@@ -30,7 +30,7 @@
             let text ="";
             text = `<table class="w3-table-all w3-hoverable"><tr class="w3-brown"><th>Product Image</th><th>Title</th><th>Price</th></tr>`;
             for(let i = 0; i<data.length; i++){
-                text+=`<tr><td><img src=${data[i][0]}></td><td>${data[i][1]}</td><td>${data[i][2]}</td></tr>`;
+                text+=`<tr><td><img src=${data[i][0]} onclick="onClick(this)"></td><td>${data[i][1] }</td><td>${data[i][2]}</td></tr>`;
             }
             text += `</table>`;
                 document.getElementById("productList").innerHTML=text;
@@ -47,6 +47,11 @@
                data.push(a);
                console.log(data);
            }
+
+           function onClick(element){
+                document.getElementById("img01").src=element.src;
+                document.getElementById("modal01").style.display="block";
+            }
     </script>
 
     <style>
@@ -117,7 +122,7 @@
             <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
             <a href="#" class="w3-bar-item w3-button">마이페이지</a>
             <a href="#" class="w3-bar-item w3-button">장바구니</a>
-            <a href="#" class="w3-bar-item w3-button">내가 찜한 목록</a>
+            <a href="./sidebar3.html" class="w3-bar-item w3-button">읽고 싶은 책 LIST</a>
             <a href="#" class="w3-bar-item w3-button">알림</a>
         </div>
         
@@ -140,7 +145,7 @@
     </nav>
 
     <section>
-    <article 
+    <!--<article>-->
     <div id="demo" class="w3-container">
         <h2 class="w3-text-brown"><b>Goods List</b></h2>
         <div style="border: 4px solid rgb(199, 184, 175)">
@@ -150,10 +155,10 @@
         </table>
         </div>
     </div>
-    </article>
+    <!--</article>-->
     <br><br>
     
-    <article class="add" class="w3-row w3-large w3-margin-top">
+    <!--<article class="add" class="w3-row w3-large w3-margin-top">-->
     <div class="w3-container">
         <h2 class="w3-text-brown"><b>Product registration (상품등록)</b></h2>
         <div style="border: 4px solid rgb(199, 184, 175)">
@@ -166,8 +171,15 @@
         </div>
         </div>
     </div>
-</article>
+<!--</article>-->
+
+    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+        <div class="w3-modal-content w3-animate-zoom">
+        <img id="img01" style="width:100%;">
+    </div>
+    </div>
     </section>
+    <br><br><br>
 
     <footer class="w3-gray w3-text-white">
         <div class="w3-row">

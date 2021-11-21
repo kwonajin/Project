@@ -40,6 +40,11 @@
                 $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
             });
         });
+
+        function popup(){
+            //window.open("팝업소스파일","별명","스타일설정")
+            window.open("event.html","11월 사은품 이벤트트","width=700, height=900, scrollbars=yes");
+        }
     </script>
 
     <style>
@@ -226,13 +231,13 @@
     </style>
 </head>
 
-<body>
+<body onload="popup();">
     <header>
         <div class="w3-sidebar w3-bar-block	w3-border-right" style="display:none" id="mySidebar">
             <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
             <a href="#" class="w3-bar-item w3-button">마이페이지</a>
             <a href="#" class="w3-bar-item w3-button">장바구니</a>
-            <a href="#" class="w3-bar-item w3-button">내가 찜한 목록</a>
+            <a href="./sidebar3.html" class="w3-bar-item w3-button">읽고 싶은 책 LIST</a>
             <a href="#" class="w3-bar-item w3-button">알림</a>
         </div>
         

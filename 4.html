@@ -17,33 +17,6 @@
                document.getElementById("mySidebar").style.display = "none";
             }
 
-            let data = [["./image/goods01.jpg", "연의 편지 한정판 엽서", "13,500"],
-                    ["./image/goods02.png", "책 라디오", "14,000"],
-                    ["./image/goods03.png", "그림자 무드등", "8,000"],
-                    ["./image/goods04.jpg", "책 베개", "13,000"]]
-
-           function tablePrint(){
-            
-            let text ="";
-            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-brown"><th>Product Image</th><th>Title</th><th>Price</th></tr>`;
-            for(let i = 0; i<data.length; i++){
-                text+=`<tr><td><img src=${data[i][0]}></td><td>${data[i][1]}</td><td>${data[i][2]}</td></tr>`;
-            }
-            text += `</table>`;
-                document.getElementById("productList").innerHTML=text;
-           }
-           function fileUpload(){
-               let a = new Array();
-               let file = "./image/" + document.getElementById("file").files[0].name;
-               let title = document.getElementById("title").value;
-               let price = parseInt(document.getElementById("price").value);
-               
-               a[0] = file;
-               a[1] = title;
-               a[2] = price;
-               data.push(a);
-               console.log(data);
-           }
     </script>
 
     <style>
@@ -112,7 +85,7 @@
             <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
             <a href="#" class="w3-bar-item w3-button">마이페이지</a>
             <a href="#" class="w3-bar-item w3-button">장바구니</a>
-            <a href="#" class="w3-bar-item w3-button">내가 찜한 목록</a>
+            <a href="./sidebar3.html" class="w3-bar-item w3-button">읽고 싶은 책 LIST</a>
             <a href="#" class="w3-bar-item w3-button">알림</a>
         </div>
         
