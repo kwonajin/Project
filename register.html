@@ -4,58 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="w3.css">
     <title>꿈꾸는 서점</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href=".w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <script>
-            function w3_open(){
-               document.getElementById("mySidebar").style.display = "block";
-            }
-            function w3_close(){
-               document.getElementById("mySidebar").style.display = "none";
-            }
+    <script src="main.js">
+         function w3_open(){
+            document.getElementById("mySidebar").style.display = "block";
+        }
+        function w3_close(){
+            document.getElementById("mySidebar").style.display = "none";
+        }
 
-            let data = [["./image/goods01.jpg", "연의 편지 한정판 엽서", "13,500"],
-                    ["./image/goods02.png", "책 라디오", "14,000"],
-                    ["./image/goods03.png", "그림자 무드등", " 8,000"],
-                    ["./image/goods04.jpg", "책 베개", "13,000"],
-                    ["./image/goods05.png", "동화책 오르골", "11,300"],
-                    ["./image/goods06.png", "윤동주 별헤는 밤 시그니쳐 향수", "14,800"],
-                    ["./image/goods07.jpg", "어린왕자 구슬램프", "11,000"]]
+        function cartAppend(e){
+            const x = document.getElementById(e);
+            const ele = document.getElementById("cart");
+            ele.appendChild(x);
+        }
 
-           function tablePrint(){
-            
-            let text ="";
-            text = `<table class="w3-table-all w3-hoverable"><tr class="w3-brown"><th>Product Image</th><th>Title</th><th>Price</th></tr>`;
-            for(let i = 0; i<data.length; i++){
-                text+=`<tr><td><img src=${data[i][0]} onclick="onClick(this)"></td><td>${data[i][1] }</td><td>${data[i][2]}</td></tr>`;
-            }
-            text += `</table>`;
-                document.getElementById("productList").innerHTML=text;
-           }
-           function fileUpload(){
-               let a = new Array();
-               let file = "./image/" + document.getElementById("file").files[0].name;
-               let title = document.getElementById("title").value;
-               let price = parseInt(document.getElementById("price").value);
-               
-               a[0] = file;
-               a[1] = title;
-               a[2] = price;
-               data.push(a);
-               console.log(data);
-           }
+        function cartRemove(e){
+            const x = document.getElementById(e);
+            const cart = document.getElementById("cart");
+            const list = document.getElementById("list");
+            cart.removeChild(x);
+            list.appendChild(x);
+        }
 
-           function onClick(element){
-                document.getElementById("img01").src=element.src;
-                document.getElementById("modal01").style.display="block";
-            }
     </script>
 
-    <style>
-        @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+<style>
+     @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
         body{max-width: 950px; margin : 0 auto;}
         *{font-family: "Jeju Myeongjo" ,Arial, Helvetica, sans-serif}
         header h1{display: inline; letter-spacing: 3px; color: #695e4ef6; position: absolute; padding: 15px; margin: 0px 0px 15px ; }
@@ -86,13 +66,19 @@
         article{
             margin : 20px 0px;
         }
-        div#productadd{
-            padding : 15px;
-        }
 
         div#header{
             margin: 0px 300px;
 
+        }
+
+        ol{
+            margin: 30px 20px ;
+        }
+
+        li{
+            margin: 15px 0px;
+            color: rgb(77, 66, 52);
         }
 
         .floating {
@@ -114,7 +100,29 @@
             border: 2px solid rgb(138, 134, 126);
             background-color: rgb(218, 210, 198);
         }
-    </style>
+
+        body {
+            height: 100%;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        input {
+            display: inline-block;
+            width: 160px;
+        }
+
+        input[type=id] {font-family:'Malgun gothic', dotum, sans-serif;}
+        input[type=password] {font-family:'Malgun gothic', dotum, sans-serif;}
+
+        input{width:150px; padding:5px; border:1px solid #dedede} 
+        input:read-only{background-color:#dedede} /* read-only style */ 
+        select{padding:7px; vertical-align:middle}
+
+</style>
 </head>
 <body onload="tablePrint();">
     <header>
@@ -144,51 +152,62 @@
         </ul>
     </nav>
 
-    <section>
-    <!--<article>-->
-    <div id="demo" class="w3-container">
-        <h2 class="w3-text-brown"><b>Goods List</b></h2>
-        <div style="border: 4px solid rgb(199, 184, 175)">
-        <div id="productList">
+    <div id="page-wrap">
+        <h2 class="w3-text-brown"><b>회원가입</b></h2><br>
+        <form method="post" action="#" name="form" onsubmit="return checkAll();">
+            <fieldset class="w3-text-brown">
+                <legend><b>회원정보입력</b></legend>
+                <label for="userId">아이디</label>
+                <input type="text" name="userId" id="text1">
+                <button >중복검사</button><br>
+                <label for="password1">비밀번호</label>
+                <input type="password" name="password1"> <a> * 비밀번호는 영문대소문자와 숫자 4~12자리로 입력해주세요.</a><br>
+                <label for="password2">비밀번호 확인</label>
+                <input type="password" name="password2"> <a> * 비밀번호는 영문대소문자와 숫자 4~12자리로 입력해주세요.</a><br>
+                <label for="name">이름</label>
+                <input type="text" name="name"><br>
+                <label for="tel">전화번호</label>
+                <input type="tel" name="tel"><br>
 
-        </div>
-        </table>
-        </div>
-    </div>
-    <!--</article>-->
-    <br><br>
-    
-    <!--<article class="add" class="w3-row w3-large w3-margin-top">-->
-    <div class="w3-container">
-        <h2 class="w3-text-brown"><b>Product registration (상품등록)</b></h2>
-        <div style="border: 4px solid rgb(199, 184, 175)">
-        <div id="productadd">
-        Product Image : <input class="w3-input" type="file" name="" id="file"> <br>
-        Title : <input class="w3-input" type="text" name="" id="title"> <br>
-        Price : <input class="w3-input" type="text" name="" id="price"> <br>
-        <button class= "w3-button w3-round w3-brown" onclick="fileUpload();"> 상품등록</button>
-        <button class= "w3-button w3-round w3-brown" onclick="tablePrint();"> 상품리스트</button>
-        </div>
-        </div>
-    </div>
-<!--</article>-->
+                <label for="email">e-mail</label>
+                <input type="text" id="email1" name="email1" class="ui_input"> @ <input type="text" id="email2" name="email2" class="ui_input">
+                        <select id="email3" name="email3" title="이메일 주소 선택" class="ui_select">
+                            <option value="">선택하세요</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="yahoo.com">daum.net</option>
+                            <option value="hanmail.net">hanmail.net</option>
+                            <option value="">직접입력</option>
+                        </select>
+                        <br>
 
-    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-        <div class="w3-modal-content w3-animate-zoom">
-        <img id="img01" style="width:100%;">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                        <script>
+                            $( "#email3" ).change(function(){
+                                $("#email2").val( $("#email3").val() );
+                            });
+                        </script>
+
+                <label for="dob">생년월일</label>
+                <input type="date" name="dob"><br>
+            </fieldset>
+            <br>
+            <input class="w3-btn w3-pale-red" type="submit" name="submit" value="제출" />
+            <input class="w3-btn w3-sand" type="reset" name="reset" value="초기화" />
+        </form>
     </div>
-    </div>
-    </section>
-    <br><br><br>
+
+    <br><br><br><br><br>
 
     <footer class="w3-gray w3-text-white">
         <div class="w3-row">
             <div class="w3-col s4  w3-container" >
                 <h5> Contact </h5>
                 <ul>
-                    <li>Phone - 010 4854 9173</li>
-                    <li>Email - <a href="mailto:kaj0529@naver.com" title="Email Us">kaj0529@naver.com</a></li>
-                    <li><a href="https://github.com/kwonajin/Project">Github - https://github.com/<br>kwonajin/Project</a></li>
+                    <li class="w3-text-white">Phone - 010 4854 9173</li>
+                    <li class="w3-text-white">Email - <a href="mailto:kaj0529@naver.com" title="Email Us">kaj0529@naver.com</a></li>
+                    <li class="w3-text-white"><a href="https://github.com/kwonajin/Project">Github - https://github.com/<br>kwonajin/Project</a></li>
                 </ul>
                     
             </div>
@@ -209,7 +228,6 @@
         </div>
     </footer>
 
-
     <a style="display:scroll;position:fixed;bottom:30px;right:50px;" href="#" title=”맨위로"><img src="./image/top.png" width="50px" height="50px"></a>
 
     <div class="floating">
@@ -217,5 +235,6 @@
         <div id="f02"><a href="https://www.google.co.kr/"><i class="fa fa-safari" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
         <div id="f03"><a href="http://qr.kakao.com/talk/xbzb9HOZB2cPzfLkzEfQkOZNx74-"><i class="fa fa-comments" style="font-size:28px;color:rgb(139, 124, 103)"></i></a></div> 
     </div>
+
 </body>
 </html>
