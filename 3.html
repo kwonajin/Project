@@ -63,10 +63,13 @@
         ul{list-style: none;}
         a{text-decoration: none;}
 
+        nav {
+            line-height: 50px;
+        }
         nav ul {
             display: flex;
             text-align: center; border-top: 3px solid #b49770e7;
-            border-bottom: 3px solid#b49770e7; padding: 15px 10px;   
+            border-bottom: 3px solid#b49770e7; padding: 1px 10px;   
         }
         nav ul li{
             list-style: none;
@@ -74,13 +77,28 @@
             display: inline;
             padding: 20px 70px;
             letter-spacing: 5px;
+            position: relative;
         }
         nav ul li:hover{
             color: white;
             background-color: #866943e7;
+            transition: ease 0.5s;
         }
         nav li a:hover{
             color:white;
+        }
+
+        nav ul li ul{
+            display:none;
+            position: absolute;
+            background-color: white;
+            width: 240px;
+            border: 1px solid gray;
+            z-index: 2;
+        }
+
+        nav ul li:hover ul{
+            display: block;
         }
 
         article{
@@ -114,6 +132,7 @@
             border: 2px solid rgb(138, 134, 126);
             background-color: rgb(218, 210, 198);
         }
+
     </style>
 </head>
 <body onload="tablePrint();">
@@ -137,7 +156,13 @@
 
     <nav>
         <ul>
-            <b><li><a href="./1.html">베스트셀러</a></li>
+            <b><li><a href="./1.html">베스트셀러</a>
+                <ul>
+                    <li><a href="#">한국소설</a></li>
+                    <li><a href="#">자기개발</a></li>
+                    <li><a href="#">해외소설</a></li>
+                </ul>
+            </li>
             <li><a href="./2.html">신간 리뷰</a></li>
             <li><a href="./3.html">굿즈</a></li>
             <li><a href="./4.html">듣는 책</a></li></b>
@@ -175,7 +200,7 @@
 
     <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
         <div class="w3-modal-content w3-animate-zoom">
-        <img id="img01" style="width:100%;">
+        <img id="img01" style="width: 100%;">
     </div>
     </div>
     </section>

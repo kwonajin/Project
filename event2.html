@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<style>
+     @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+     body{max-width: 950px; margin : 0 auto;}
+     *{font-family: "Jeju Myeongjo" ,Arial, Helvetica, sans-serif !important}
+
+    #bg {
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+            
+        /* Preserve aspet ratio */
+        min-width: 100%;
+        min-height: 100%;
+    }
+    div#event{
+        margin: 80px 30px 20px;
+    }
+
+    div#title{
+        background-color: rgb(212, 161, 153);
+    }
+    div#img{
+        padding: 5px 5px ;
+    }
+    div#img1{
+        padding: 5px 5px ;
+        background-color : rgb(210, 208, 160);
+
+    }
+    div#img1 div{
+        float: left;
+        margin: 8px 8px        
+    }
+
+
+</style>
+<body>
+
+    <div style="position: relative;">
+        <img src="./image/bg.webp" style="opacity: 0.2;" id="bg" alt="">
+    </div>
+    <div style="position: relative; left:10px; top: -70px;">
+    <center>
+    <div id="event">
+    <div id="title" style="border:4px solid rgb(168, 92, 78)">
+    <h2 class="w3-text-brown"><b>크리스마스 추천 도서</b></h2>
+    </div>
+    <div id="img">
+        <img src="./image/event2.png" width="300" height="300" alt="">
+    </div>
+
+    <div id="img1" style="border: 4px solid rgb(107, 141, 106)">
+        <div><img src="./image/b1.png" width="150" height="200" alt="" ><b><p>The Snowman</p></b></div>
+        <div><img src="./image/b2.png" width="150" height="200" alt=""><b><p>크리스마스트리</p></b></div>
+        <div><img src="./image/b3.png" width="150" height="200" alt=""><b><p>크리스마스 캐럴</p></b></div>
+        <br><br><br><br><br><br><br><br><br><br><br>     
+    </div>
+    <br>
+
+    <div>
+    <button class="w3-btn w3-pale-red" onclick="window.close();">Close</button>
+    </div>
+    </center>
+    </div>
+
+
+</body>
+</html>
